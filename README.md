@@ -1,15 +1,16 @@
-# French_Trot_2023
-[website link](https://canssiontario.utoronto.ca/workshops-conferences/french-trot-horse-racing/)
+# CANSSI Competition French Trot Horse Racing 2023
+For an in-depth introduction of the French Trot Horse Racing Competition, please refer to [this website](https://canssiontario.utoronto.ca/workshops-conferences/french-trot-horse-racing/)
 
-## Group Member
+## Collaborative Team
+Our study was conducted by a dedicated team comprising:
 - Xiao Jun Qiu
 - Tao Shan
 - E Ching Kho
 
-## Preprocessing (Tao_Data_Preprocessing.ipynb)
-We filled in missing values and convert category variables to dummy variables or convert to other compesite variables that make more sense.
+## Data Preparation (Tao_Data_Preprocessing.ipynb)
+Our initial step in the analytical process involved a comprehensive data cleansing routine. We meticulously addressed missing entries and transformed categorical variables into dummy indicators, enhancing their interpretability. Additionally, we refined several variables to construct more meaningful composite measures. 
 
-The following are list of variables we have modified:
+The variables refined include:
 - AgeRestriction
 - Barrier
 - ClassRestriction
@@ -24,22 +25,24 @@ The following are list of variables we have modified:
 - StartType
 - Surface
 
-Then we perform a scaling for variable with ID
+Subsequently, we normalized the variables associated with identification to ensure uniformity in scale. 
 
-At last, we split the data into training and testing data based on the mentioned datae 2021-11-01.
+Finally, we partitioned our dataset into training and testing subsets, employing a cutoff date of November 1, 2021 as required.
 
-### Win Probability
-For the true label of win proability, we decide to use the percentage of prizemoney. In that case, we assure the true win proability of each raceID sums to 1.
+### Constructing the Win Probability Metric
+In quantifying the likelihood of winning, we adopted the distribution of prize money as a proxy for the true win probability. This innovative approach guarantees that the aggregated probability for each raceID is sum to 1.
 
-## Model Training
-The following are a list of models we tried:
-- decision tree
-- random forest
-- gradientboosttree
-- xgboost
-- linear regression
-- logistic regression
-- lasso regression
+We devised a custom normalization function that adeptly adjusts the predicted win probabilities for the trained model, ensuring their collective sum per raceID achieves the desired total of 1.
 
-## Result
-After comparing results, we decide to submit our xgboost model as it has the best performance among all models.
+## Training of Predictive Models
+Throughout our investigation, we experimented with an array of predictive models to ascertain the most effective algorithm, including:
+- Decision Tree
+- Random Forest
+- Gradient Boosting Tree
+- XGBoost
+- Linear Regression
+- Logistic Regression
+- Lasso Regression
+
+## Conclusive Findings
+Upon meticulous evaluation, we concluded that the XGBoost model exhibited superior performance relative to its counterparts. Consequently, we have nominated this model for our official submission, given its exceptional predictive prowess.
